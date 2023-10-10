@@ -1,12 +1,12 @@
 import sql from "mssql";
 import { config } from "../database";
+import AuthService from "../services/auth.service";
 require('dotenv').config();
 
 // Todo: change query to use binding inputs to avoid sql inject
 export const getUserById = async (username: string) => {
  await sql.connect(config);
   const result = await sql.query(`USE RF_User_AoP SELECT * FROM tbl_RFTestAccount where id='${username}'`);
-  console.log(result)
   return result;
 }
 
@@ -17,20 +17,7 @@ export const createOne = async (username: string, password: string) => {
     return result;
 }
 
-export const createUser = async (username: string, password: string): Promise<any> => {
-  const user = await getUserById(username);
-  if (user) throw new Error("username already in use");
-  const createUser = await createOne(username, password);
-  return createUser;
-};
-
-export const signin = async (username: string, password: string): Promise<void> => {
-    const user = await getUserById(username);
-    if (!user) throw new Error("user not found");
-    const fromBuffer = user.recordset[0]?.password.toString('utf8');
-    const parsedPass = fromBuffer.replace(/[^a-zA-Z0-9 ]/g, "")
-    console.log(parsedPass)
-    if (parsedPass !== password) throw new Error("wrong password"); 
-    // Todo: create token
-  
+export default {
+    getUserById,
+    createOne,
 }

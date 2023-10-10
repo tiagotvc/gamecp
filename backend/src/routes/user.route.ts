@@ -1,26 +1,24 @@
 import { Router, Request, Response } from "express";
-import { createUser, signin } from "../repository/user.repository";
+import authService from  "../services/auth.service";
+import userService from "../services/user.service";
 
 const router = Router();
+const auth = authService.auth;
 
 router.get("/signin", async (req: Request, res: Response) => {
-  try {
     const { username, password } = req.body;
-    const user = await signin(username, password);
-    res.json(user);
-  } catch (err: any) {
-    res.json({ message: err.message });
-  }
+    const token = await authService.authenticate(username, password)
+    res.json({token:token});
 });
 
 router.post("/create", async (req: Request, res: Response) => {
-  try {
     const { username, password } = req.body;
-    await createUser(username, password);
-    res.json({ message: "Sucess creating user" });
-  } catch (err: any) {
-    res.json({ message: err.message });
-  }
+    const user = await userService.createUser(username, password);
+    res.json({ message: user });
 });
+
+router.get("/logged", auth, async (req: Request, res: Response) => {
+  res.json({message: 'logged user'})
+})
 
 export default router;
