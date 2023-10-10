@@ -69,7 +69,7 @@ export const LoginPage: React.FC = () => {
             />
           </div>
           <div className="login-actions">
-            <Button color="danger" variant="outline" type="submit">
+            <Button className="btn-connect" type="submit">
               Connect
             </Button>
           </div>

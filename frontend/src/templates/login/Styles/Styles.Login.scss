@@ -9,5 +9,26 @@
     .password {
         margin-top: 5px;
     }
+
+    .btn-connect {
+        color: #1f1204;
+        background-color: #ffa600f3;
+        width: 150px;
+        height: 40px;
+        border: 2px solid orange;
+        cursor: pointer;
+        border-radius: 15px;
+        font-weight: 600;
+        box-shadow: 0 0 5px orange;
+        font-size: 16px;
+        transition: 0.2s;
+
+        &:hover {
+            color: #FFF;
+            background-color: #e39606f3;
+            border: 2px solid #e39606f3;
+            box-shadow: 0 0 5px #e39606f3;
+        }
+    }
 }
 
