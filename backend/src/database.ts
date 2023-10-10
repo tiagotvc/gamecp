@@ -1,16 +1,17 @@
-import sql from 'mssql'
-require('dotenv').config()
+require("dotenv").config();
 
-export const sqlConnection = () => {
-
-    const config = {
-        user:process.env.SQL_USER,
-        password:process.env.SQL_PASSWORD,
-        server:process.env.SQL_SERVER,
-        database:process.env.SQL_DATABASE,
-        synchronize: true,
-        trustServerCertificate: true
-       
-    }
-    return sql.connect(config);
-}
+export const config = {
+  user: process.env.SQL_USER,
+  password: process.env.SQL_PASSWORD,
+  server: process.env.SQL_SERVER as string,
+  database: process.env.SQL_DATABASE,
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000,
+  },
+  options: {
+    encrypt: false, // for azure
+    trustServerCertificate: true, // change to true for local dev / self-signed certs
+  },
+};
