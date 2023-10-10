@@ -1,8 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { CustomError } from "express-handler-errors";
 import userRepository from "../repository/user.repository";
-import jwt, { Secret, JwtPayload, sign } from "jsonwebtoken";
-import { FormError } from "../types/formError";
+import jwt, { JwtPayload, sign } from "jsonwebtoken";
+import { FieldError } from "../types/Error";
 require("dotenv").config();
 
 export interface CustomRequest extends Request {
@@ -16,21 +15,9 @@ export const authConfig = {
 
 export const authenticate = async (username: string, password: string) => {
   try {
-    if (!username)
-      throw new FormError({
-        message: "Required Field.",
-        field: "username",
-        code: "FORM_ERROR",
-        status: 500,
-      });
+    if (!username) FieldError("username", "Required Field.");
 
-    if (!password)
-      throw new FormError({
-        message: "Required Field.",
-        field: "password",
-        code: "FORM_ERROR",
-        status: 500,
-      });
+    if (!password) FieldError("password", "Required Field.");
 
     const user = await userRepository.getUserById(username);
 
@@ -38,13 +25,7 @@ export const authenticate = async (username: string, password: string) => {
 
     const passFromBuffer = user.recordset[0]?.password.toString("utf8");
     const parsedPass = passFromBuffer.replace(/[^a-zA-Z0-9 ]/g, "");
-    if (parsedPass !== password)
-      throw new FormError({
-        message: "Wrong password.",
-        field: "password",
-        code: "FORM_ERROR",
-        status: 500,
-      });
+    if (parsedPass !== password) FieldError("password", "Wrong password.");
 
     const token = sign(
       {
@@ -66,14 +47,8 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.headers.authorization?.replace("Bearer ", "");
 
-    if (!token) {
-      throw new FormError({
-        message: "Bearer token is required.",
-        field: "headers.authorization",
-        code: "FORM_ERROR",
-        status: 500,
-      });
-    }
+    if (!token)
+      FieldError("headers.authorization", "Bearer token is required.");
 
     jwt.verify(token as string, authConfig.secret);
 
