@@ -10,3 +10,8 @@ export const createUser = async ({username, password}:IUser) => {
     });
     return data;
 }
+
+export const signin = async ({username, password}:IUser) => {
+    const token = await axios.get(`${process.env.BACKEND_URL}/user/signin?username=${username}&password=${password}`)
+    return token;
+}
