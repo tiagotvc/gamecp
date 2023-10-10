@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from "cors"
 require('dotenv').config()
 import users from './routes/user.route'
 
@@ -9,6 +10,10 @@ const app = express();
 const route = Router()                                                                                                                                                                                                                                                                                                              
 
 app.use(express.json())
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+  }));
 
 
 app.use('/api', route)
