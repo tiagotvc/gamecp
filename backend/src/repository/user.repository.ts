@@ -23,3 +23,14 @@ export const createUser = async (username: string, password: string): Promise<an
   const createUser = await createOne(username, password);
   return createUser;
 };
+
+export const signin = async (username: string, password: string): Promise<void> => {
+    const user = await getUserById(username);
+    if (!user) throw new Error("user not found");
+    const fromBuffer = user.recordset[0]?.password.toString('utf8');
+    const parsedPass = fromBuffer.replace(/[^a-zA-Z0-9 ]/g, "")
+    console.log(parsedPass)
+    if (parsedPass !== password) throw new Error("wrong password"); 
+    // Todo: create token
+  
+}
