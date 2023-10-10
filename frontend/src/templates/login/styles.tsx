@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import portugueseFlag from './flagbr.svg'
+import portugueseFlag from './images/flagbr.svg'
 
 export const Container = styled("div")(
   () => css`

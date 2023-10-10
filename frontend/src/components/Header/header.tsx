@@ -1,6 +1,6 @@
-import Button from "../Button/button";
+// import Button from "../Button/button";
 import { Container } from "./styles";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const Header = () => {
   const [active, setActive] = useState(false);

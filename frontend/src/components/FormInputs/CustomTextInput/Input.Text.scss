@@ -1,0 +1,101 @@
+.custom-text-input {
+
+  .input-group {
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .input-group-focused {
+    position: relative;
+    transition: 0.3s;
+  }
+
+  .my-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #1f1204d7;
+    border-radius: 5px;
+    outline: none;
+    color: #ffa60088;
+    font-size: 1em;
+    font-weight: 600;
+    height: 25px;
+
+    &:focus-visible {
+      outline: #00d6b6;
+      box-shadow: 0 0 3px orange;
+    }
+  }
+
+  .invalid-input {
+    border: 1px solid rgb(206, 102, 102);
+    box-shadow: 0 0 3px red;
+    color: red;
+
+    &:focus-visible {
+        outline: #00d6b6;
+        box-shadow: 0 0 3px red;
+      }
+
+    &::placeholder {
+      color: red;
+    }
+  }
+
+  .my-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .placeholder-label {
+    position: absolute;
+    pointer-events: none;
+    text-transform: uppercase;
+    left: 12px;
+    top: 12px;
+    transition: 0.2s ease all;
+    opacity: 1;
+    color: #ffa60088;
+  }
+
+  .placeholder-label-password {
+    position: absolute;
+    pointer-events: none;
+    text-transform: uppercase;
+    left: 12px;
+    top: 18px;
+    transition: 0.2s ease all;
+    opacity: 1;
+    color: #ffa60088;
+  }
+
+  .label-focus {
+    top: -19px;
+    left: 2px;
+    font-size: 14px;
+    opacity: 1;
+    padding: 0 0px;
+  }
+
+  .label-focus-password {
+    top: -16px;
+    left: 2px;
+    font-size: 14px;
+    opacity: 1;
+    padding: 0 0px;
+  }
+
+  .btn-toggle-password {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    top: 15px;
+
+    button {
+        background: none;
+        border: none;
+    }
+  }
+}

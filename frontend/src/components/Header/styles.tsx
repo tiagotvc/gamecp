@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import bg from "./OLO2DS0.jpg";
+import bg from "./images/OLO2DS0.jpg";
 
 interface HeaderProps {
     active: boolean;

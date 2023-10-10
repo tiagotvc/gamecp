@@ -3,7 +3,7 @@ import { LoginPage } from './templates/login';
 import { Footer } from './components/Footer/footer';
 import { ContainerApp } from './theme/render-theme';
 import { Header } from './components/Header/header';
-import image2 from './theme/novo.png'
+// import image2 from './theme/novo.png'
 import { BattlePass } from './templates/battlepass/battlepass';
 
 

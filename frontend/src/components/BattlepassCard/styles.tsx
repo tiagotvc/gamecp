@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
-import goldTexture from "./gold-texture-wallpaper.jpg"
-import silverTexture from "./silver-2143730_1280.jpg"
+// import goldTexture from "./gold-texture-wallpaper.jpg"
+// import silverTexture from "./silver-2143730_1280.jpg"
 
 
-interface BtnProps {
-    buttonType: string;
-   }
+// interface BtnProps {
+//     buttonType: string;
+//    }
 
 export const Container = styled("div")(
     ({ theme }) => css`

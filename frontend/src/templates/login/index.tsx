@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { Container } from './styles';
-import InputText from '../../components/InputText/inputText';
-import Button from '../../components/Button/button';
-import brl from './brazil_flag_wallpaper-1920x1200.webp'
-import englishFlag from  './imageeua.png'
-import espanFlag from './espanha.png'
+// import InputText from '../../components/InputText/inputText';
+// import Button from '../../components/Button/button';
+import { CustomControlledPasswordInput, CustomControlledTextInput } from '../../components/FormInputs/CustomTextInput/CustomTextInput';
+import useLoginForm, { LoginHandleSubmitValues } from './Hooks/useLoginForm';
+import "./Styles/Styles.Login.scss"
+import { Button } from 'react-bootstrap';
+// import brl from './brazil_flag_wallpaper-1920x1200.webp'
+// import englishFlag from  './imageeua.png'
+// import espanFlag from './espanha.png'
 
 export const LoginPage: React.FC = () => {
     const navigate = useNavigate()
-    const [userName, setUserName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+   //  const [userName, setUserName] = useState<string>('');
+   //  const [password, setPassword] = useState<string>('');
 
-    const onSubmit = () => {
+   const { methods } = useLoginForm()
+
+    const onSubmit = (values: LoginHandleSubmitValues) => {
         navigate('/battlePass')
     }
 
@@ -22,15 +28,15 @@ export const LoginPage: React.FC = () => {
                 <div className='gamecp-name'>
                     <h1>Awakening Game Control</h1>
                 </div>
-                <form onSubmit={onSubmit}>
-                    <div className='login-username-input'>
-                        <InputText labelText='login'/>
+                <form className='grid-login' onSubmit={methods.handleSubmit(onSubmit)}>
+                    <div className='login'>
+                        <CustomControlledTextInput autoComplete='off' label='Login' control={methods.control} name='Login' />
                     </div>
-                    <div className='login-password-input'>
-                        <InputText labelText='password'/>
+                    <div className='password'>
+                        <CustomControlledPasswordInput maxLength={12} autoComplete='off' label='Password' control={methods.control} name='Password' />
                     </div>
                     <div className='login-actions'>
-                        <Button children="Connect" buttonType='primary'/>
+                        <Button color='danger' variant='outline' type='submit'>Connect</Button>
                     </div>
                     <div className='login-forgot-password'>
                         <a href='/forgot-password'>Forgot your password ?</a>
