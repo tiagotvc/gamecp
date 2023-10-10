@@ -1,18 +1,18 @@
 import React  from 'react';
 import { Btn, GoldenButton, SilverButton, Text } from './styles'
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement>{
  children: React.ReactNode;
  buttonType: string;
 }
 
-export const Button = ({ children, buttonType }: ButtonProps) => {
+export const Button: React.FC<ButtonProps> = ({ children, buttonType }, props) => {
     return (
         <>
-        {buttonType !== "golden" && buttonType !== "silver" &&(<Btn data-testid="button-component" buttonType={buttonType}>{children}</Btn>)}
-        {buttonType === "golden" && <><GoldenButton></GoldenButton>
+        {buttonType !== "golden" && buttonType !== "silver" && (<Btn { ...props} buttonType={buttonType}>{children}</Btn>)}
+        {buttonType === "golden" && <><GoldenButton { ...props} ></GoldenButton>
         <Text>{children}</Text></>}
-        {buttonType === "silver" && <><SilverButton></SilverButton>
+        {buttonType === "silver" && <><SilverButton { ...props} ></SilverButton>
         <Text>{children}</Text></>}
         </>
         

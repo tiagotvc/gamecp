@@ -1,21 +1,23 @@
-import React , { useState, ChangeEvent } from 'react';
+import React, { ChangeEvent }  from 'react';
 import { Container } from './styles'
-import { trueMock } from '../../utils/constants';
 
 interface InputTextProps {
     labelText: string;
+    value: string | number;
+    onChangeEvent: (event: ChangeEvent<HTMLInputElement>) => any;
+    id: string;
+    required: boolean;
 }
 
-export const InputText = ({ labelText }:InputTextProps) => {
-    const [textvalue, setTextValue] = useState<string>("");
+export const InputText : React.FC<InputTextProps> = ({ labelText, onChangeEvent, value, id, required }) => {
 
-    const changeTextValue = (event:ChangeEvent<HTMLInputElement>) => {
-        setTextValue(event.target.value);
+    const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        onChangeEvent(event)
     }
-
+   
     return (
         <Container>
-            <input type="text" onChange={changeTextValue} value={textvalue} required={trueMock}/>
+            <input onChange={onInputChange} value={value} id={id} required={required}></input>
             <span>{labelText}</span>
         </Container>
        

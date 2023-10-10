@@ -18,15 +18,6 @@ export const Container = styled("div")(
       justify-content: center;
       align-items: center;
 
-      .login-forgot-password {
-        margin-top: 25px;
-        text-align: center;
-        > a {
-            color: orange;
-            text-transform: uppercase
-        }
-      }
-
       .gamecp-name {
         text-align: center;
         filter: url("#fire");
@@ -41,14 +32,7 @@ export const Container = styled("div")(
         }
       }
 
-
-      .login-username-input {
-        display: flex;
-        margin-top: 20px;
-        height: 50px;
-      }
-
-      .login-password-input {
+      .signup {
         display: flex;
         margin-top: 10px;
         height: 50px;
@@ -61,6 +45,15 @@ export const Container = styled("div")(
         height: 50px;
         margin-top: 7px;
         width: 270px;
+      }
+
+      .redirect-to-signin {
+        margin-top: 25px;
+        text-align: center;
+        > a {
+            color: orange;
+            text-transform: uppercase
+        }
       }
 
       .hidde-svg {

@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Container } from './styles';
 import InputText from '../../components/InputText/inputText';
 import Button from '../../components/Button/button';
-import brl from './brazil_flag_wallpaper-1920x1200.webp'
-import englishFlag from  './imageeua.png'
-import espanFlag from './espanha.png'
 
 export const LoginPage: React.FC = () => {
+    const [state, setState] = useState({
+        username: "",
+        password: "",
+      });
+    
+      const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, [event.target.id]: event.target.value });
+      };
+
     const navigate = useNavigate()
-    const [userName, setUserName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
 
     const onSubmit = () => {
-        navigate('/battlePass')
+        navigate("/signup")
     }
 
     return (
@@ -24,16 +28,19 @@ export const LoginPage: React.FC = () => {
                 </div>
                 <form onSubmit={onSubmit}>
                     <div className='login-username-input'>
-                        <InputText labelText='login'/>
+                        <InputText labelText='login'  onChangeEvent={onInputChange} value={state.username} id="username" required/>
                     </div>
                     <div className='login-password-input'>
-                        <InputText labelText='password'/>
+                        <InputText labelText='password'  onChangeEvent={onInputChange} value={state.password} id="password" required/>
                     </div>
                     <div className='login-actions'>
                         <Button children="Connect" buttonType='primary'/>
                     </div>
                     <div className='login-forgot-password'>
                         <a href='/forgot-password'>Forgot your password ?</a>
+                    </div>
+                    <div className='login-forgot-password'>
+                        <a href='/signup'>Dont have a account ? Create</a>
                     </div>
                 </form>
                 <div className='hidde-svg'>
