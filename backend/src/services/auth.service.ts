@@ -7,6 +7,7 @@ require("dotenv").config();
 
 export interface CustomRequest extends Request {
   token: string | JwtPayload;
+  
  }
 
 export const authConfig = {
@@ -16,7 +17,15 @@ export const authConfig = {
 
 export const authenticate = async (username: string, password: string) => {
   try {
-    if (!username || !password) throw new Error('username and password is required')
+    if (!username) throw new CustomError({
+      message: 'Required Field.',
+      field:'username',
+    })
+
+    if (!password) throw new CustomError({
+      message: 'Required Field.',
+      field:'password',
+    })
     
     const user = await userRepository.getUserById(username);
 
@@ -24,7 +33,10 @@ export const authenticate = async (username: string, password: string) => {
     
     const passFromBuffer = user.recordset[0]?.password.toString('utf8');
     const parsedPass = passFromBuffer.replace(/[^a-zA-Z0-9 ]/g, "")
-    if (parsedPass !== password) throw new Error("wrong password"); 
+    if (parsedPass !== password) throw new CustomError({
+      message: 'Wrong password.',
+      field:'password',
+    })
 
     const token = sign({
       id:username
@@ -45,7 +57,10 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.replace('Bearer ', '');
    
     if (!token) {
-      throw new Error('Bearer token is required');
+      throw new CustomError({
+        message: 'Bearer token is required.',
+        field:'headers.authorization',
+      })
     }
 
     jwt.verify(token as string, authConfig.secret);
