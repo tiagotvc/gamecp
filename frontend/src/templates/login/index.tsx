@@ -71,10 +71,8 @@ export const LoginPage: React.FC = () => {
           </div>
           <div className="login-actions">
             <Button className="kave-btn"color="danger" variant="outline" type="submit">
-              <span className="kave-line"></span>
-            <Button className="btn-connect" type="submit">
-              Connect
-            </Button>
+              <span className="kave-line">Connect</span>
+         </Button>
           </div>
           <div className="login-forgot-password">
             <a href="/recoverpass">Forgot your password ?</a>
