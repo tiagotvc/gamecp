@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Container } from "./styles";
 import InputText from "../../components/InputText/inputText";
 import { Button } from "react-bootstrap";

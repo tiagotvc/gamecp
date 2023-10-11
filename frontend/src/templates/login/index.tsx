@@ -11,7 +11,7 @@ import useLoginForm, { LoginHandleSubmitValues } from "./Hooks/useLoginForm";
 import "./Styles/Styles.Login.scss";
 import { Button } from "react-bootstrap";
 import { signin } from "../../service/user.service";
-import "../../index.scss"
+import "../../index.scss";
 // import brl from './brazil_flag_wallpaper-1920x1200.webp'
 // import englishFlag from  './imageeua.png'
 // import espanFlag from './espanha.png'
@@ -35,10 +35,10 @@ export const LoginPage: React.FC = () => {
   const onSubmit = async (values: LoginHandleSubmitValues) => {
     try {
       await signin({
-        username: values.Login,
+        username: values.Username,
         password: values.Password,
       }).then(() => {
-        navigate("/battlepass")
+        navigate("/battlepass");
       });
     } catch (err) {
       console.log(err);
@@ -57,7 +57,7 @@ export const LoginPage: React.FC = () => {
               autoComplete="off"
               label="Login"
               control={methods.control}
-              name="Login"
+              name="Username"
             />
           </div>
           <div className="password">
@@ -70,9 +70,14 @@ export const LoginPage: React.FC = () => {
             />
           </div>
           <div className="login-actions">
-            <Button className="kave-btn"color="danger" variant="outline" type="submit">
+            <Button
+              className="kave-btn"
+              color="danger"
+              variant="outline"
+              type="submit"
+            >
               <span className="kave-line">Connect</span>
-         </Button>
+            </Button>
           </div>
           <div className="login-forgot-password">
             <a href="/recoverpass">Forgot your password ?</a>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const loginSchema = z.object({
-  Login: z
+  Username: z
     .string({
       required_error: "Campo login é obrigatório",
     })
@@ -16,22 +16,26 @@ const loginSchema = z.object({
     .refine((value) => !/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(value), {
       message: "O login não pode conter caracteres especiais.",
     }),
-  Password: z
+    Password: z
     .string({
       required_error: "Campo senha é obrigatório",
-    })
-    .min(4, {
-      message: "A senha deve conter no minimo 4 caracteres",
-    })
-    .regex(/[A-Z]/, {
-      message: "A senha deve conter pelo menos 1 letra maiúscula",
-    })
-    .regex(/[0-9]/, {
-      message: "A senha deve conter pelo menos 1 número",
-    })
-    .refine((value) => !/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(value), {
-      message: "A senha não pode conter caracteres especiais.",
     }),
+  // Password: z
+  //   .string({
+  //     required_error: "Campo senha é obrigatório",
+  //   })
+  //   .min(4, {
+  //     message: "A senha deve conter no minimo 4 caracteres",
+  //   })
+  //   .regex(/[A-Z]/, {
+  //     message: "A senha deve conter pelo menos 1 letra maiúscula",
+  //   })
+  //   .regex(/[0-9]/, {
+  //     message: "A senha deve conter pelo menos 1 número",
+  //   })
+  //   .refine((value) => !/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(value), {
+  //     message: "A senha não pode conter caracteres especiais.",
+  //   }),
 });
 
 const useLoginForm = () => {

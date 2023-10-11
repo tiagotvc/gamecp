@@ -23,7 +23,7 @@ export const authenticate = async (username: string, password: string) => {
 
     if (!user) throw new Error("user not found");
 
-    const passFromBuffer = user.recordset[0]?.password.toString("utf8");
+    const passFromBuffer = user.password.toString("utf8");
     const parsedPass = passFromBuffer.replace(/[^a-zA-Z0-9 ]/g, "");
     if (parsedPass !== password) FieldError("password", "Wrong password.");
 
