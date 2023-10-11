@@ -72,6 +72,9 @@ export const SignupPage: React.FC = () => {
           <div className="signup redirect-to-signin">
             <a href="/">Already has a account ? Signin</a>
           </div>
+          <div className="signup studio-name">
+            <p>{`<> Oak studio`}</p>
+          </div>
         </form>
       </div>
     </Container>
