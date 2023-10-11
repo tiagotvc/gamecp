@@ -1,23 +1,26 @@
 import React from "react";
 import "./styles.scss";
 import selectedImg from "./images/SciFi_Circle01Cyan_02.png";
+import { GiSwitchWeapon, GiBattleGear, GiCrossedSwords } from "react-icons/gi";
+import { PiShoppingCartSimpleFill } from "react-icons/pi";
+import { BiDownload } from "react-icons/bi";
 
 export const LayoutPage = () => {
   const options = [
     {
-      option: "Market",
+      option: <GiCrossedSwords color="#29777b" size={"2.5rem"} />,
       id: "1",
     },
     {
-      option: "Character",
+      option: <GiBattleGear color="#29777b" size={"2.5rem"} />,
       id: "2",
     },
     {
-      option: "Luck Weel",
+      option: <PiShoppingCartSimpleFill color="#29777b" size={"2.5rem"} />,
       id: "3",
     },
     {
-      option: "Exchange item",
+      option: <GiSwitchWeapon color="#29777b" size={"2.5rem"} />,
       id: "4",
     },
     {
@@ -29,7 +32,7 @@ export const LayoutPage = () => {
       id: "6",
     },
     {
-      option: "Downloads",
+      option: <BiDownload color="#29777b" size={"2.5rem"} />,
       id: "7",
     },
   ];
@@ -40,7 +43,7 @@ export const LayoutPage = () => {
           {options.map((item) => (
             <div className="li-div" key={item.id}>
               <img src={selectedImg} alt="selected" id={item.id}></img>
-              <span id={item.id}>{item.option}</span>
+              <div className="icon-option">{item.option}</div>
             </div>
           ))}
         </ul>
