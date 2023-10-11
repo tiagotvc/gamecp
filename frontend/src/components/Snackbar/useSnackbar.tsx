@@ -8,6 +8,7 @@ export function useSnackbar() {
   const [type, setType] = useState<SnackBarTypes>("sucess");
 
   const showSnackbar: ShowSnackbarFunction = ({ message, type, autohide }) => {
+    console.log("ta aquiiii")
     setMessage(message);
     setIsActive(true);
     setType(type);      

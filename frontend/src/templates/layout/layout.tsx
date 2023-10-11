@@ -8,19 +8,19 @@ import { BiDownload } from "react-icons/bi";
 export const LayoutPage = () => {
   const options = [
     {
-      option: <GiCrossedSwords color="#29777b" size={"2.5rem"} />,
+      option: <GiCrossedSwords color="#29777b" size={"2rem"} />,
       id: "1",
     },
     {
-      option: <GiBattleGear color="#29777b" size={"2.5rem"} />,
+      option: <GiBattleGear color="#29777b" size={"2rem"} />,
       id: "2",
     },
     {
-      option: <PiShoppingCartSimpleFill color="#29777b" size={"2.5rem"} />,
+      option: <PiShoppingCartSimpleFill color="#29777b" size={"2rem"} />,
       id: "3",
     },
     {
-      option: <GiSwitchWeapon color="#29777b" size={"2.5rem"} />,
+      option: <GiSwitchWeapon color="#29777b" size={"2rem"} />,
       id: "4",
     },
     {
@@ -32,7 +32,7 @@ export const LayoutPage = () => {
       id: "6",
     },
     {
-      option: <BiDownload color="#29777b" size={"2.5rem"} />,
+      option: <BiDownload color="#29777b" size={"2rem"} />,
       id: "7",
     },
   ];

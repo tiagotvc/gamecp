@@ -14,18 +14,21 @@ export const Snackbar: React.FC<SnackbarProps> = ({
     if (!autoHide) return;
     setTimeout(() => {
       snackbarCallback();
-    }, 90000);
+    }, 40000);
   }, [autoHide]);
+
+  useEffect(() => {
+    console.log("o status mudou para", active)
+  }, [active])
 
   const name = type === "sucess" ? "Sucess" : "Alert";
   return (
     <>
       {active && (
         <Container type={type}>
-          <Icon iconName={name} />
+          {/* <Icon iconName={name} /> */}
           {message}
-          <div onClick={snackbarCallback}>
-            <Icon iconName="Close"/>
+          <div className="close" onClick={snackbarCallback}>
           </div>
         </Container>
       )}

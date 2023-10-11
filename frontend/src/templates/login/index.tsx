@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "./styles";
-// import InputText from '../../components/InputText/inputText';
-// import Button from '../../components/Button/button';
 import {
   CustomControlledPasswordInput,
   CustomControlledTextInput,
@@ -12,11 +10,12 @@ import "./Styles/Styles.Login.scss";
 import { Button } from "react-bootstrap";
 import { signin } from "../../service/user.service";
 import "../../index.scss";
-// import brl from './brazil_flag_wallpaper-1920x1200.webp'
-// import englishFlag from  './imageeua.png'
-// import espanFlag from './espanha.png'
+import { ActionsContext } from "../../contexts/Navbar/Navbar.context";
+
 
 export const LoginPage: React.FC = () => {
+ const { showSnackbar } = useContext(ActionsContext);
+
   // const [state, setState] = useState({
   //     username: "",
   //     password: "",
@@ -34,14 +33,24 @@ export const LoginPage: React.FC = () => {
 
   const onSubmit = async (values: LoginHandleSubmitValues) => {
     try {
-      await signin({
+      /* await signin({
         username: values.Username,
         password: values.Password,
       }).then(() => {
-        navigate("/dashboard")
+        navigate("/dashboard");
+      }); */
+      console.log("caiu aqui")
+      showSnackbar({
+        message: "Something good with request",
+        type: "error",
+        autohide: true,
       });
     } catch (err) {
-      console.log(err);
+      showSnackbar({
+        message: "wrong password",
+        type: "error",
+        autohide: true,
+      });
     }
   };
 
