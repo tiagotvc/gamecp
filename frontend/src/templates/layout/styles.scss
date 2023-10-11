@@ -61,6 +61,12 @@
             > svg {
                 filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
             }
+
+            > img {
+                width: 2.6em;
+                margin-top: 10px;
+                filter: saturate(2);
+            }
         }
 
 
@@ -71,11 +77,15 @@
 
           > img {
             display: flex;
+            
           }
 
           .icon-option {
             > svg {
-                fill:rgba(0, 214, 252, 1);
+                fill:#00BFFF;
+            }
+            >img {
+                filter: saturate(6) contrast(160%) brightness(1.25);;
             }
         }
 
