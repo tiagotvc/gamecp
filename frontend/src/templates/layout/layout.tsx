@@ -51,12 +51,12 @@ export const LayoutPage = () => {
     {
       option: "Change race",
       id: "6",
-      url: "download"
+      url: "changeRace"
     },
     {
       option: <BiDownload color="#4e809f" size={"2rem"} />,
       id: "7",
-      url: "/dashboard7"
+      url: "download"
     },
   ];
   return (

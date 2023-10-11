@@ -37,7 +37,8 @@ const Main = () => {
             <Route path="/dashboard/market" element={<div>tab market teste</div>}/>
             <Route path="/dashboard/exchange" element={<div>tab exchange teste</div>}/>
             <Route path="/dashboard/download" element={<div>tab download teste</div>}/>
-            <Route path="/dashboard/any" element={<div>tab download teste</div>}/>
+            <Route path="/dashboard/any" element={<div>tab any teste</div>}/>
+            <Route path="/dashboard/changeRace" element={<div>tab changeRace teste</div>}/>
             </Route>
         </Routes>
       </ActionsContext.Provider>
