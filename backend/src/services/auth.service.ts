@@ -15,6 +15,7 @@ export const authConfig = {
 
 export const authenticate = async (username: string, password: string) => {
   try {
+    console.log(username);
     if (!username) FieldError("username", "Required Field.");
 
     if (!password) FieldError("password", "Required Field.");
@@ -39,6 +40,7 @@ export const authenticate = async (username: string, password: string) => {
 
     return { token: token };
   } catch (err: any) {
+    console.log(err);
     return err;
   }
 };
