@@ -1,0 +1,169 @@
+$primary: 71 29% 59%;
+$accent: 171 100% 30%;
+$warn: 18 65% 45%;
+$bg: 0 0% 10%;
+
+$border-offset: 2.5em;
+$color: #{$primary};
+
+.primary {
+  --color: #{$primary};
+}
+
+.accent {
+  --color: #{$accent};
+}
+
+.warn {
+  --color: #{$warn};
+}
+
+.card {
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid hsl(71, 29%, 59%);
+  width: 90%;
+
+  .title {
+    font-variant: small-caps;
+    font-size: 1.2em;
+    border-bottom: 1px solid hsl($primary);
+    box-sizing: border-box;
+    min-height: $border-offset;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: $border-offset;
+  }
+
+  .content {
+    padding: 10px 10px 10px max(10px, #{$border-offset});
+    background-size: 20px 20px;
+    background-image: linear-gradient(
+        to right,
+        transparent 19px,
+        hsl(var(--color) / 0.05) 1px
+      ),
+      linear-gradient(to bottom, transparent 19px, hsl(var(--color) / 0.05) 1px);
+  }
+
+  .footer {
+    font-variant: small-caps;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    min-height: $border-offset;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-left: $border-offset;
+    border-top: 1px dashed hsl($primary);
+    background: repeating-linear-gradient(
+      45deg,
+      hsl(var(--color) / 0.1),
+      hsl(var(--color) / 0.1) 0.6em,
+      hsl(var(--color) / 0) 0.6em,
+      hsl(var(--color) / 0) 1.2em
+    );
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    width: $border-offset;
+    height: $border-offset;
+    z-index: 1;
+  }
+
+  &::before {
+    top: -1px;
+    right: -1px;
+    background: linear-gradient(
+      to top right,
+      hsl(var(--bg-color) / 0) calc(50% - 1px),
+      hsl(var(--color)),
+      hsl(var(--bg-color)) calc(50% + 1px)
+    );
+  }
+
+  &::after {
+    bottom: -1px;
+    left: -1px;
+    background: linear-gradient(
+      to top right,
+      hsl(var(--bg-color)) calc(50% - 1px),
+      hsl(var(--color)),
+      hsl(var(--bg-color) / 0) calc(50% + 1px)
+    );
+  }
+}
+
+$padding-x: 0.6em;
+$padding-y: 0.3em;
+.button {
+  background-color: hsl($bg);
+  display: inline-block;
+  color: #{hsl(var(--color))};
+  border: 0px solid hsl(var(--color));
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  padding: $padding-y $padding-x;
+  position: relative;
+  cursor: pointer;
+  margin: 0 $padding-x;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  div {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    box-sizing: border-box;
+    transition: width 200ms ease-in, height 200ms ease-in;
+
+    &.top {
+      border-top: 1px solid;
+      top: 0;
+    }
+
+    &.left {
+      border-left: 1px solid;
+      left: 0;
+    }
+
+    &.bottom {
+      border-bottom: 1px solid;
+      bottom: 0;
+    }
+
+    &.right {
+      border-right: 1px solid;
+      right: 0;
+    }
+  }
+
+  &:hover div {
+    width: $padding-x;
+    height: $padding-y;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle,
+      hsl(var(--color) / 0.2) 0%,
+      hsl(var(--color) / 0.4) 50%,
+      hsl(var(--color) / 0.6) 100%
+    );
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+  }
+
+  &:active::before {
+    opacity: 0.3;
+  }
+}

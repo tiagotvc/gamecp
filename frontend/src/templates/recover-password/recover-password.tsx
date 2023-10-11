@@ -4,10 +4,10 @@ import InputText from "../../components/InputText/inputText";
 import { Button } from "react-bootstrap";
 import { createUser } from "../../service/user.service";
 
-export const SignupPage: React.FC = () => {
+export const RecoverPasswordPage: React.FC = () => {
   const [state, setState] = useState({
     username: "",
-    password: "",
+    newpassword: "",
     reenterpassword: "",
   });
 
@@ -17,9 +17,9 @@ export const SignupPage: React.FC = () => {
 
   const onFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (state.password === state.reenterpassword) {
+    if (state.newpassword === state.reenterpassword) {
         try {
-           await createUser(state);
+           console.log('recover');
         }
         catch (err) {
             console.log(err)
@@ -45,12 +45,12 @@ export const SignupPage: React.FC = () => {
               required
             />
           </div>
-          <div className="signup password-input" id="password">
+          <div className="signup reenter-password-input" id="newpassword">
             <InputText
-              labelText="password"
-              id="password"
+              labelText="newpassword"
+              id="newpassword"
               onChangeEvent={onInputChange}
-              value={state.password}
+              value={state.newpassword}
               required
             />
           </div>

@@ -7,17 +7,11 @@ import { useEffect, useState } from "react";
 
 export const Header = () => {
   const [active, setActive] = useState(false);
-  const [active2, setActive2] = useState(false);
-  const url = window.location.pathname
-  
+ 
 
-  useEffect(() => {
-      if (window.location.pathname !== '/'  && window.location.pathname !== '/signup') setActive2(true);
-      else setActive2(false);
-  }, [url])
   return (
     <Container active={active}>
-      {active2 && <Navbar/>}
+    
       <div className="dropdown">
         <ul>
           <li>Cliente 4.15</li>

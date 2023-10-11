@@ -76,10 +76,13 @@ export const LoginPage: React.FC = () => {
             </Button>
           </div>
           <div className="login-forgot-password">
-            <a href="/forgot-password">Forgot your password ?</a>
+            <a href="/recoverpass">Forgot your password ?</a>
           </div>
           <div className="login-forgot-password">
             <a href="/signup">Dont have a account ? Create</a>
+          </div>
+          <div className="login-forgot-password">
+            <p>{`<> Oak studio`}</p>
           </div>
         </form>
       </div>

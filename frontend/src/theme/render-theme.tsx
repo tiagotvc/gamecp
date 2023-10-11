@@ -12,17 +12,15 @@ export const renderTheme = ({ children }: any) => {
 
 export const ContainerApp = styled("div")(
   () => css`
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 100vh;
     background-color: rgb(183, 100%, 25%);
-    
- 
-
- 
+    justify-content: center;
+    align-items: center;
     
     .header-container {
       display: flex;
