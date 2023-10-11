@@ -38,7 +38,7 @@ export const LoginPage: React.FC = () => {
         username: values.Login,
         password: values.Password,
       }).then(() => {
-        navigate("/battlepass")
+        navigate("/dashboard")
       });
     } catch (err) {
       console.log(err);
