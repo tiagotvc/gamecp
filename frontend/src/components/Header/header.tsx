@@ -1,15 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import Button from "../Button/button";
+
+import { Navbar } from "../Navbar/navbar";
 import { Container } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const [active, setActive] = useState(false);
+ 
+
   return (
     <Container active={active}>
-      {/* <button onClick={() => setActive(!active)}>
-        <span>Downloads</span>
-      </button> */}
-   
+    
       <div className="dropdown">
         <ul>
           <li>Cliente 4.15</li>
