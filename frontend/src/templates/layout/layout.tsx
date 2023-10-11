@@ -31,27 +31,27 @@ export const LayoutPage = () => {
     {
       option: <GiBattleGear color="#4e809f" size={"2rem"} />,
       id: "2",
-      url: "/dashboard2"
+      url: "any"
     },
     {
       option: <img src={shop} alt="" />,
       id: "3",
-      url: "/dashboard3"
+      url: "market"
     },
     {
       option: <GiSwitchWeapon color="#4e809f" size={"2rem"} />,
       id: "4",
-      url: "/dashboard4"
+      url: "exchange"
     },
     {
       option: <img src={spin} alt="" />,
       id: "5",
-      url: "/dashboard5"
+      url: "spinner"
     },
     {
       option: "Change race",
       id: "6",
-      url: "/dashboard6"
+      url: "download"
     },
     {
       option: <BiDownload color="#4e809f" size={"2rem"} />,
