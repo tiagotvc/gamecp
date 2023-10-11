@@ -32,7 +32,9 @@ const Main = () => {
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/recoverpass" element={<RecoverPasswordPage />} />
-          <Route path="/dashboard" element={<LayoutPage />} />
+          <Route path="/dashboard" element={<LayoutPage />} >
+            <Route path="/dashboard/person" element={<div>tab person teste</div>}/>
+            </Route>
         </Routes>
       </ActionsContext.Provider>
     </ContainerApp>
