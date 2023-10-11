@@ -8,7 +8,6 @@ export const Container = styled("div")(
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #1f1204e0;
 
     .container-content {
       display: flex;
@@ -19,16 +18,12 @@ export const Container = styled("div")(
       align-items: center;
 
       .gamecp-name {
-        text-align: center;
-        filter: url("#fire");
+      
         > h1 {
-          color: #fbfbb0;
+            color: #2be4ea;
           font-size: 3.2em;
           font-weight: 600;
           letter-spacing: 0.1em;
-          -webkit-box-reflect: below -15px linear-gradient(transparent, #0002);
-          text-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 40px orange,
-            0 0 60px orange, 0 0 120px orange;
         }
       }
 

@@ -110,7 +110,7 @@ export const CustomControlledPasswordInput = <TFields extends FieldValues>({
                   variant="outline-secondary"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? <RiEyeFill color="orange" size={"1.5rem"}/> : <RiEyeCloseFill color="orange" size={"1.5rem"} />}
+                  {showPassword ? <RiEyeFill color="#29777b" size={"1.5rem"}/> : <RiEyeCloseFill color="#29777b" size={"1.5rem"} />}
                 </Button>
               </InputGroup>
                 <Form.Label className={`placeholder-label-password ${isFocused || inputValue ? 'label-focus-password' : ''}`}>

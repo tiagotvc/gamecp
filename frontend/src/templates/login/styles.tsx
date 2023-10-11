@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import portugueseFlag from './images/flagbr.svg'
+import portugueseFlag from "./images/flagbr.svg";
 
 export const Container = styled("div")(
   () => css`
@@ -9,7 +9,6 @@ export const Container = styled("div")(
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #1f1204e0;
 
     .container-content {
       display: flex;
@@ -19,29 +18,51 @@ export const Container = styled("div")(
       justify-content: center;
       align-items: center;
 
-      .language-choose {        display: flex;               .portuguese, .espanol, .english {            width: 60px;            border-radius: 50%;            height: 50px;            background-color: #1f1204e0;            margin-right: 25px;            cursor: pointer;            image-rendering:optimizeQuality;                        &:hover {                box-shadow: 0 0 3px orange;            }        }        .portuguese {            background-image: url(${portugueseFlag});        }      }      .login-forgot-password {
-        margin-top: 25px;
+    
+      .login-forgot-password {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 45px;
         text-align: center;
+        
         > a {
-            color: orange;
-            text-transform: uppercase
+          color: #2be4ea;
+          text-transform: uppercase;
+          font-size: 12px;
         }
       }
 
       .gamecp-name {
+        width: 100%;
         text-align: center;
-        filter: url("#fire");
         > h1 {
-          color: #fbfbb0;
-          font-size: 3.2em;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          -webkit-box-reflect: below -15px linear-gradient(transparent, #0002);
-          text-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 40px orange,
-            0 0 60px orange, 0 0 120px orange;
+          color: rgba(0, 214, 252, 0.5);
+          font-family: "Roboto", sans-serif;
+          text-transform: uppercase;
+          font-weight: normal;
+          letter-spacing: 1.8px;
+          font-size: 3em;
+          text-shadow: 0 0 8px rgba(0, 214, 252, 0.4);
+        }
+
+        &::after {
+          display: table;
+    content: "";
+    clear: both;
+          width: 100%;
+    height: 50px;
+    background-image: url(https://i.imgur.com/9EfnzaH.png);
+    background-repeat: no-repeat;
+    background-position: center 0px;
         }
       }
 
+      .gamecp-name::after {
+        
+
+      }
 
       .login-username-input {
         display: flex;

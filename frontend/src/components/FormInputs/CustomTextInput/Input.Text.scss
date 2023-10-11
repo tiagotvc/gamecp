@@ -1,5 +1,4 @@
 .custom-text-input {
-
   .input-group {
     position: relative;
     transition: 0.3s;
@@ -13,18 +12,19 @@
   .my-input {
     width: 100%;
     padding: 10px;
-    border: none;
-    background: #1f1204d7;
+    background: #082430;
+    border: 2px solid #29777b;
     border-radius: 5px;
     outline: none;
-    color: #ffa60088;
+    color: #29777b;
     font-size: 1em;
     font-weight: 600;
     height: 25px;
+    border: solid 1px rgba(0, 214, 252, 0.3);
 
     &:focus-visible {
-      outline: #00d6b6;
-      box-shadow: 0 0 3px orange;
+      box-shadow: 1px 1px 8px rgba(0, 214, 252, 0.3);
+      text-shadow: 0 0 8px rgba(0, 214, 252, 0.4);                                                    
     }
   }
 
@@ -34,9 +34,9 @@
     color: red;
 
     &:focus-visible {
-        outline: #00d6b6;
-        box-shadow: 0 0 3px red;
-      }
+      outline: #00d6b6;
+      box-shadow: 0 0 3px red;
+    }
 
     &::placeholder {
       color: red;
@@ -57,7 +57,8 @@
     top: 12px;
     transition: 0.2s ease all;
     opacity: 1;
-    color: #ffa60088;
+    color: #29777b;
+    font-weight: 600;
   }
 
   .placeholder-label-password {
@@ -68,7 +69,8 @@
     top: 18px;
     transition: 0.2s ease all;
     opacity: 1;
-    color: #ffa60088;
+    color: #29777b;
+    font-weight: 600;
   }
 
   .label-focus {
@@ -77,6 +79,7 @@
     font-size: 14px;
     opacity: 1;
     padding: 0 0px;
+    color: rgba(0, 214, 252, 1);
   }
 
   .label-focus-password {
@@ -85,6 +88,7 @@
     font-size: 14px;
     opacity: 1;
     padding: 0 0px;
+    color: rgba(0, 214, 252, 1);
   }
 
   .btn-toggle-password {
@@ -94,8 +98,8 @@
     top: 15px;
 
     button {
-        background: none;
-        border: none;
+      background: none;
+      border: none;
     }
   }
 }
