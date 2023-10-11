@@ -36,7 +36,7 @@ export const RecoverPasswordPage: React.FC = () => {
           <h1>Game control panel</h1>
         </div>
         <form onSubmit={onFormSubmit} >
-          <div className="signup username-input" id="username">
+          <div className="recoverpass username-input" id="username">
             <InputText
               labelText="login"
               id="username"
@@ -45,7 +45,7 @@ export const RecoverPasswordPage: React.FC = () => {
               required
             />
           </div>
-          <div className="signup reenter-password-input" id="newpassword">
+          <div className="recoverpass reenter-password-input" id="newpassword">
             <InputText
               labelText="newpassword"
               id="newpassword"
@@ -54,7 +54,7 @@ export const RecoverPasswordPage: React.FC = () => {
               required
             />
           </div>
-          <div className="signup reenter-password-input" id="reenterpassword">
+          <div className="recoverpass reenter-password-input" id="reenterpassword">
             <InputText
               labelText="reenter password"
               id="reenterpassword"
@@ -63,14 +63,17 @@ export const RecoverPasswordPage: React.FC = () => {
               required
             />
           </div>
-          <div className="signup login-actions" id="submit">
+          <div className="recoverpass login-actions" id="submit">
           <Button className="kave-btn"color="danger" variant="outline" type="submit">
               <span className="kave-line"></span>
               Connect
             </Button>
           </div>
-          <div className="signup redirect-to-signin">
+          <div className="recoverpass redirect-to-signin">
             <a href="/">Already has a account ? Signin</a>
+          </div>
+          <div className="recoverpass studio-name">
+            <p>{`<> Oak studio`}</p>
           </div>
         </form>
       </div>
