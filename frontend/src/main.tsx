@@ -7,6 +7,7 @@ import { LayoutPage } from "./templates/layout/layout";
 import { ActionsContext } from "./contexts/Navbar/Navbar.context";
 import { useSnackbar } from "./components/Snackbar/useSnackbar";
 import { Snackbar } from "./components/Snackbar/snackbar";
+import { AccountInformation } from "./templates/accountInformation/accountInformation";
 
 const Main = () => {
   const {
@@ -31,15 +32,7 @@ const Main = () => {
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/recoverpass" element={<RecoverPasswordPage />} />
-          <Route path="/dashboard" element={<LayoutPage />} >
-            <Route path="/dashboard/person" element={<div>tab person teste</div>}/>
-            <Route path="/dashboard/spinner" element={<div>tab spinner teste</div>}/>
-            <Route path="/dashboard/market" element={<div>tab market teste</div>}/>
-            <Route path="/dashboard/exchange" element={<div>tab exchange teste</div>}/>
-            <Route path="/dashboard/download" element={<div>tab download teste</div>}/>
-            <Route path="/dashboard/any" element={<div>tab any teste</div>}/>
-            <Route path="/dashboard/changeRace" element={<div>tab changeRace teste</div>}/>
-            </Route>
+          <Route path="/dashboard/*" element={<LayoutPage />} />
         </Routes>
       </ActionsContext.Provider>
     </ContainerApp>
