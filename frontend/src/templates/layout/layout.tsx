@@ -9,6 +9,7 @@ import shop from "./images/shop.png";
 import { GiSwitchWeapon, GiBattleGear, GiCrossedSwords } from "react-icons/gi";
 import { BiDownload } from "react-icons/bi";
 import { AccountInformation } from "../accountInformation/accountInformation";
+import { LuckWell } from "../luckweel/luckWeel";
 
 export const LayoutPage = () => {
   const [activeTab, setActiveTab] = useState<string>("");
@@ -47,7 +48,7 @@ export const LayoutPage = () => {
     {
       option: <img src={spin} alt="" />,
       id: "5",
-      url: "spinner",
+      url: "luckweel",
     },
     {
       option: "Change race",
@@ -106,7 +107,7 @@ export const LayoutPage = () => {
             {url === "/dashboard/battlepass" && <span>Battle pass</span>}
             {url === "/dashboard/market" && <span>Market</span>}
             {url === "/dashboard/exchange" && <span>Exchange</span>}
-            {url === "/dashboard/spinner" && <span>Spinner</span>}
+            {url === "/dashboard/luckweel" && <span>Luck weel</span>}
             {url === "/dashboard/downloads" && <span>Downloads</span>}
             {url === "/dashboard/changerace" && <span>Change race</span>}
             {url === "/dashboard/accountinfo" && <span>Account info</span>}
@@ -115,7 +116,7 @@ export const LayoutPage = () => {
         <div className="container-routes">
           <Routes>
             <Route path="/accountinfo" element={<AccountInformation />} />
-            <Route path="/spinner" element={<AccountInformation />} />
+            <Route path="/luckweel" element={<LuckWell />} />
             <Route path="/market" element={<AccountInformation />} />
             <Route path="/exchange" element={<AccountInformation />} />
             <Route path="/download" element={<AccountInformation />} />
