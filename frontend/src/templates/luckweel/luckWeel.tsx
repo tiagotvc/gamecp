@@ -9,12 +9,14 @@ import video from "./images/video.png";
 
 export const LuckWell = () => {
   const particles = Array.from(Array(150).keys());
+
+  
   return (
     <div className="luck-weel-container">
-        <div className="header">
-            <span className="title">Daily free luck weel</span>
-            <span className="subtitle">Get 3 free spins for day</span>
-        </div>
+      <div className="header">
+        <span className="title">Daily free luck weel</span>
+        <span className="subtitle">Get 3 free spins for day</span>
+      </div>
       {particles.map((each: any) => (
         <div className="luck-weel-container-bg">
           <div className="circle" />
@@ -28,7 +30,7 @@ export const LuckWell = () => {
         <img src={btnluckweel01} alt="btn-luck-weel-1" />
         <img src={btnluckweel02} alt="btn-luck-weel-1" />
         <button className="recharg">
-        <img src={video} alt="video" className="video-img"/>
+          <img src={video} alt="video" className="video-img" />
           <span>Recharg</span>
           <div className="p-recharg">
             <i></i>
@@ -37,7 +39,6 @@ export const LuckWell = () => {
             <i></i>
           </div>
         </button>
-        
       </div>
     </div>
   );
