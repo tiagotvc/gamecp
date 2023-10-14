@@ -26,10 +26,10 @@ export const Snackbar: React.FC<SnackbarProps> = ({
     <>
       {active && (
         <Container type={type}>
+           <div className="close" onClick={snackbarCallback}>
+          </div>
           {/* <Icon iconName={name} /> */}
           {message}
-          <div className="close" onClick={snackbarCallback}>
-          </div>
         </Container>
       )}
     </>

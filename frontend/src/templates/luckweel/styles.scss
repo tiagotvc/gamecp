@@ -2,13 +2,152 @@
   display: flex;
   position: relative;
   width: 100%;
-  height: 89vh;
+  height: 93vh;
   -moz-box-shadow:    inset  0  20px 10px -20px hsl(198, 84%, 60%), 
   inset  0 -10px 10px -10px hsl(198, 84%, 60%);
 -webkit-box-shadow: inset  0  20px 10px -20px hsl(198, 84%, 60%), 
   inset  0 -10px 10px -10px hsl(198, 84%, 60%);
-box-shadow:        inset  0  0px 50px -130px hsl(198, 84%, 60%), 
-  inset  0 -80px 130px -130px hsl(198, 84%, 60%);
+box-shadow:        inset  0  0px 50px -150px hsl(198, 84%, 60%), 
+  inset  0 -80px 120px -150px hsl(198, 84%, 60%);
+ 
+
+  .header {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 10px;
+    .title {
+        color: rgba(0, 214, 252, 0.5);
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 1.8px;
+        font-size: 1.1em;
+        text-shadow: 0 0 3px rgba(0, 214, 252, 0.4), 0 0 3px rgba(0, 214, 252, 0.4);
+    }
+    .subtitle {
+        color: rgba(0, 214, 252, 0.5);
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 1.8px;
+        font-size: 0.6em;
+    }
+  }
+
+  @keyframes mig {
+    from {
+      filter: brightness(100%);
+    }
+  
+    50% {
+      filter: brightness(110%);
+      box-shadow: 0 0 20px #F41729;
+    }
+  
+    to {
+      filter: brightness(100%);
+    }
+  }
+  
+  
+  @keyframes migstart {
+    from {
+      filter: brightness(100%);
+    }
+  
+    50% {
+      filter: brightness(130%);
+    }
+  
+    to {
+      filter: brightness(100%);
+    }
+  }
+  
+  
+  @keyframes migobt {
+    from {
+      height: 110px;
+      margin-top: 40px;
+      filter: brightness(100%);
+    }
+  
+    50% {
+      height: 90px;
+      margin-top: 60px;
+      filter: brightness(150%);
+      box-shadow: 0 0 20px #FE6702;
+    }
+  
+    to {
+      height: 110px;
+      margin-top: 40px;
+      filter: brightness(100%);
+    }
+  }
+  
+  
+  @keyframes migclose {
+    from {}
+  
+    50% {
+      background: rgba(242, 23, 41, 0.9);
+    }
+  
+    to {}
+  }
+  @keyframes tuktuk {
+    0% {
+      transform: scale(1);
+    }
+  
+    10% {
+      transform: scale(1.05);
+    }
+  
+    30% {
+      transform: scale(1);
+    }
+  
+    40% {
+      transform: scale(1.05);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  
+  @keyframes regletter {
+    from {}
+  
+    50% {
+      text-shadow: 0 0 0 transparent;
+    }
+  
+    to {
+      color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  
+  @keyframes registracia {
+    from {}
+  
+    50% {
+      box-shadow: 0 0 10px 2px #5BDD07,inset 0 0 10px 2px #5BDD07;
+      text-shadow: 0 0 25px #5BDD07,0 0 15px #5BDD07,0 0 3px #5BDD07;
+    }
+  
+    to {
+      box-shadow: 0 0 10px 2px #5BDD07,inset 0 0 10px 2px #5BDD07;
+      text-shadow: 0 0 25px #5BDD07,0 0 15px #5BDD07,0 0 3px #5BDD07;
+    }
+  }
+
 
   .luck-weel-container-weel {
     display: flex;
@@ -18,6 +157,7 @@ box-shadow:        inset  0  0px 50px -130px hsl(198, 84%, 60%),
     justify-content: center;
     align-items: center;
 
+  
     > img {
         position: absolute;
         display: flex;
@@ -37,7 +177,113 @@ box-shadow:        inset  0  0px 50px -130px hsl(198, 84%, 60%),
       > img:nth-child(6) {
         width: 80px;
       }
-  }
+      
+      .recharg {
+        position: absolute;
+        display: flex;
+        max-width: 250px;
+        animation: migstart 1s infinite 3.2s;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        transition: .2s;
+        box-shadow: 0 0 10px 2px #F21729,inset 0 0 10px 2px #e27304;
+        text-shadow: 0 0 25px #F21729,0 0 15px #F21729,0 0 3px #F21729;
+        background: orange;
+        border-radius: 3px;
+        font-weight: 400;
+        cursor: pointer;
+        font-size: 18px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: #fff;
+        height: 50px;
+        line-height: 46px;
+        border: 2px solid #fff;
+        padding: 0 40px;
+        right: 20px;
+        bottom: 80px;
+
+        .video-img {
+            width: 40px;
+            right: 150px;
+            bottom: 110px;
+            margin-right: 15px;
+        }
+
+        .p-recharg {
+          z-index: -1;
+          animation: tuktuk 2s infinite ease;
+          transition: .4s;
+          position: absolute;
+          left: -9px;
+          top: -9px;
+          right: -9px;
+          bottom: -9px;
+          display: block;
+          i {
+            display: block;
+            background: transparent;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            &:nth-child(1) {
+              transition: 0.9s;
+              border-radius: 4px 0 0 0;
+              left: 0;
+              top: 0;
+              border-top: 2px solid #fff;
+              border-left: 2px solid #fff;
+            }
+            &:nth-child(2) {
+              transition: 0.9s;
+              border-radius: 0 4px 0 0;
+              right: 0;
+              top: 0;
+              border-top: 2px solid #fff;
+              border-right: 2px solid #fff;
+            }
+            &:nth-child(3) {
+              transition: 0.9s;
+              border-radius: 0 0 4px 0;
+              right: 0;
+              bottom: 0;
+              border-bottom: 2px solid #fff;
+              border-right: 2px solid #fff;
+            }
+            &:nth-child(4) {
+              transition: 0.9s;
+              border-radius: 0 0 0 4px;
+              left: 0;
+              bottom: 0;
+              border-bottom: 2px solid #fff;
+              border-left: 2px solid #fff;
+            }
+          }
+        }
+        &:hover .p-recharg {
+          i {
+            &:nth-child(1) {
+              transition: 0.9s;
+              width: 100%;
+            }
+            &:nth-child(2) {
+              transition: 0.9s;
+              height: 100%;
+            }
+            &:nth-child(3) {
+              transition: 0.9s;
+              width: 100%;
+            }
+            &:nth-child(4) {
+              transition: 0.9s;
+              height: 100%;
+            }
+          }
+          animation-play-state: paused;
+          box-shadow: 0 0 15px 3px orangered,inset 0 0 15px 3px orangered;
+        }
+      }
+    }
 
   
 
