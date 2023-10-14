@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./styles.scss";
-import selectedImg from "./images/Icon1-2-2.png";
 import selectedImg2 from "./images/Icon1-2-1.png";
 import selectedImg3 from "./images/Icon1-2-3.png";
 import spin from "./images/Icon_MenuIcon08_Spin.png";
