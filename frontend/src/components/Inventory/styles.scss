@@ -1,0 +1,28 @@
+.inventory-container {
+    display: flex;
+    position: relative;
+    width: 380px;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+
+    .inventory-top {
+        display: flex;
+        position: absolute;
+        height: 640px;
+        width: 316px;
+        background: url("./images/inventory_base.png");
+        background-position: center;
+        background-size: cover;
+        margin-top:10px ;
+    }
+    .inventory-bottom {
+        height: 316px;
+        width: 320px;
+        position: absolute;
+        background: url("./images/bag.png");
+        background-position: center;
+        background-size: cover;
+        margin-top:500px ;
+    }
+}

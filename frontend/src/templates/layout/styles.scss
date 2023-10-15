@@ -235,20 +235,20 @@
     }
   }
 
-  .account-information-container {
+  .title-container {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
     height: 99vh;
 
-    .account-information-title-container {
+    .title-container-content {
       display: flex;
       position: relative;
       width: 100%;
       justify-content: center;
 
-      .account-information-title {
+      .title-container-div {
         display: flex;
         width: 240px;
         height: 64px;

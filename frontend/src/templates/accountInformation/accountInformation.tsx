@@ -1,3 +1,5 @@
+import React from "react"
+import { Inventory } from "../../components/Inventory/inventory";
 import "./styles.scss";
 
 export const AccountInformation = () => {
@@ -17,6 +19,7 @@ export const AccountInformation = () => {
           <span>Rank Battle pass:</span>
         </div>
       </div>
+      <Inventory/>
     </div>
   );
 };

@@ -130,9 +130,9 @@ export const LayoutPage = () => {
           </ul>
         </div>
       </div>
-      <div className="account-information-container">
-        <div className="account-information-title-container">
-          <div className="account-information-title">
+      <div className="title-container">
+        <div className="title-container-content">
+          <div className="title-container-div">
           <HiMenu className="hamburguer-menu" color="#4e809f" size={"2rem"} onClick={onClickMobileMenu}/>
             {url === "/dashboard/battlepass" && <span>Battle pass</span>}
             {url === "/dashboard/market" && <span>Market</span>}
