@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import userRepository from "../repository/user.repository";
 import jwt, { JwtPayload, sign } from "jsonwebtoken";
-import { FieldError } from "../types/Error";
+import { FieldError, NotFoundError } from "../types/Error";
 require("dotenv").config();
 
 export interface CustomRequest extends Request {
@@ -13,24 +13,30 @@ export const authConfig = {
   expires: "1h",
 };
 
-export const authenticate = async (username: string, password: string) => {
+export const authenticate = async (
+  username: string,
+  password: string,
+  response: Response
+) => {
   try {
-    console.log(username);
     if (!username) FieldError("username", "Required Field.");
 
     if (!password) FieldError("password", "Required Field.");
 
     const user = await userRepository.getUserById(username);
 
-    if (!user) throw new Error("user not found");
+    if (!user) NotFoundError("user not found");
 
-    const passFromBuffer = user.password.toString("utf8");
+    console.log("nao parou");
+
+    const passFromBuffer = user?.password.toString("utf8");
     const parsedPass = passFromBuffer.replace(/[^a-zA-Z0-9 ]/g, "");
     if (parsedPass !== password) FieldError("password", "Wrong password.");
 
     const token = sign(
       {
         id: username,
+        isAdmin: user?.isAdmin,
       },
       authConfig.secret ?? "",
       {
@@ -40,7 +46,6 @@ export const authenticate = async (username: string, password: string) => {
 
     return { token: token };
   } catch (err: any) {
-    console.log(err);
     return err;
   }
 };

@@ -7,11 +7,13 @@ const auth = authService.auth;
 
 router.get("/signin", async (req: Request, res: Response) => {
   const { username, password } = req.query;
-  const token = await authService.authenticate(
+  const response = await authService.authenticate(
     username as string,
-    password as string
+    password as string,
+    res
   );
-  res.json(token);
+  if (!response?.error) res.json(response);
+  else res.status(400).json(response);
 });
 
 router.post("/create", async (req: Request, res: Response) => {

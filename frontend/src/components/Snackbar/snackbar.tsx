@@ -9,12 +9,13 @@ export const Snackbar: React.FC<SnackbarProps> = ({
   type,
   autoHide,
   snackbarCallback,
+  afterLoadCallback,
 }) => {
   useEffect(() => {
     if (!autoHide) return;
     setTimeout(() => {
       snackbarCallback();
-    }, 40000);
+    }, 3000);
   }, [autoHide]);
 
   useEffect(() => {

@@ -12,9 +12,8 @@ import { signin } from "../../service/user.service";
 import "../../index.scss";
 import { ActionsContext } from "../../contexts/Navbar/Navbar.context";
 
-
 export const LoginPage: React.FC = () => {
- const { showSnackbar } = useContext(ActionsContext);
+  const { showSnackbar } = useContext(ActionsContext);
 
   // const [state, setState] = useState({
   //     username: "",
@@ -33,21 +32,20 @@ export const LoginPage: React.FC = () => {
 
   const onSubmit = async (values: LoginHandleSubmitValues) => {
     try {
-      /* await signin({
-        username: values.Username,
-        password: values.Password,
-      }).then(() => {
-        navigate("/dashboard");
-      }); */
-      console.log("caiu aqui")
+      const token = await signin({ username: values.Username, password: values.Password });
+      if (token) {
+        showSnackbar({
+          message: "Login sucess!",
+          type: "sucess",
+          autohide: true,
+          afterLoadCallback: () => navigate('/dashboard'),
+        });
+        localStorage.setItem("token",JSON.stringify(token?.data?.token))
+       
+      }
+    } catch (err: any) {
       showSnackbar({
-        message: "Something good with request",
-        type: "error",
-        autohide: true,
-      });
-    } catch (err) {
-      showSnackbar({
-        message: "wrong password",
+        message: err?.response?.data?.error?.message as string,
         type: "error",
         autohide: true,
       });

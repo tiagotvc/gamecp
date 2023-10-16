@@ -6,12 +6,14 @@ export interface SnackbarProps {
   type: SnackBarTypes;
   autoHide: boolean;
   snackbarCallback: () => void;
+  afterLoadCallback?: () => void;
 }
 
 export interface SnackbarConfig {
   message: string;
   type: SnackBarTypes;
   autohide: boolean;
+  afterLoadCallback?: () => void;
 }
 
 export interface SnackbarStyleProps {

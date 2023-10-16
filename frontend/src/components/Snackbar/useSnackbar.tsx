@@ -7,12 +7,17 @@ export function useSnackbar() {
   const [autoHide, setAutoHide] = useState<boolean>(false);
   const [type, setType] = useState<SnackBarTypes>("sucess");
 
-  const showSnackbar: ShowSnackbarFunction = ({ message, type, autohide }) => {
-    console.log("ta aquiiii")
+  const showSnackbar: ShowSnackbarFunction = ({ message, type, autohide, afterLoadCallback }) => {
     setMessage(message);
     setIsActive(true);
     setType(type);      
     setAutoHide(autohide);
+    if (afterLoadCallback) {
+      setTimeout(() => {
+        afterLoadCallback()
+      }, 3000)
+      
+    }
   };
 
   const hideSnackbar = () => {
