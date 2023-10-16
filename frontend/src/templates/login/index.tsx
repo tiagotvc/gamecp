@@ -38,10 +38,9 @@ export const LoginPage: React.FC = () => {
           message: "Login sucess!",
           type: "sucess",
           autohide: true,
-          afterLoadCallback: () => navigate('/dashboard'),
+          afterLoadCallback: () => navigate('/dashboard/accountinfo'),
         });
         localStorage.setItem("token",JSON.stringify(token?.data?.token))
-       
       }
     } catch (err: any) {
       showSnackbar({

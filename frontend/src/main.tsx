@@ -8,6 +8,7 @@ import { ActionsContext } from "./contexts/Navbar/Navbar.context";
 import { useSnackbar } from "./components/Snackbar/useSnackbar";
 import { Snackbar } from "./components/Snackbar/snackbar";
 import { AccountInformation } from "./templates/accountInformation/accountInformation";
+import { ProtectedRoute } from "./components/ProtectedRoutes/ProtectedRoutes";
 
 const Main = () => {
   const {
@@ -18,6 +19,7 @@ const Main = () => {
     autoHide,
     hideSnackbar,
   } = useSnackbar();
+
   return (
     <ContainerApp>
       <ActionsContext.Provider value={{ showSnackbar }}>
@@ -32,7 +34,14 @@ const Main = () => {
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/recoverpass" element={<RecoverPasswordPage />} />
-          <Route path="/dashboard/*" element={<LayoutPage />} />
+          <Route
+            path="/dashboard/*"
+            element={
+              <ProtectedRoute>
+                <LayoutPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </ActionsContext.Provider>
     </ContainerApp>

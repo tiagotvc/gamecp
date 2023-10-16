@@ -132,8 +132,8 @@ export const LayoutPage = () => {
       </div>
       <div className="title-container">
         <div className="title-container-content">
-          <div className="title-container-div">
-          <HiMenu className="hamburguer-menu" color="#4e809f" size={"2rem"} onClick={onClickMobileMenu}/>
+        <HiMenu className="hamburguer-menu" color="#4e809f" size={"2rem"} onClick={onClickMobileMenu}/>
+         {url !== "/dashboard" && (<div className="title-container-div">
             {url === "/dashboard/battlepass" && <span>Battle pass</span>}
             {url === "/dashboard/market" && <span>Market</span>}
             {url === "/dashboard/exchange" && <span>Exchange</span>}
@@ -141,7 +141,7 @@ export const LayoutPage = () => {
             {url === "/dashboard/downloads" && <span>Downloads</span>}
             {url === "/dashboard/changerace" && <span>Change race</span>}
             {url === "/dashboard/accountinfo" && <span>Account info</span>}
-          </div>
+          </div>)}
         </div>
         <div className="container-routes">
           <Routes>

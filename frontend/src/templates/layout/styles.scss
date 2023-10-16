@@ -248,6 +248,19 @@
       width: 100%;
       justify-content: center;
 
+      .hamburguer-menu {
+        display: none;
+      }
+
+      @media (max-width:768px) {
+        .hamburguer-menu {
+          display: flex;
+          position: absolute;
+          left: 15px;
+          top: 25px;
+        }
+      }
+
       .title-container-div {
         display: flex;
         width: 240px;
@@ -259,9 +272,7 @@
         background-size: cover;
         margin-top: 15px;
 
-        .hamburguer-menu {
-          display: none;
-        }
+   
 
         > span {
           color: rgba(0, 214, 252, 0.5);
@@ -273,13 +284,7 @@
           text-shadow: 0 0 8px rgba(0, 214, 252, 0.4);
         }
 
-        @media (max-width:768px) {
-          .hamburguer-menu {
-            display: flex;
-            position: absolute;
-            left: 15px;
-          }
-        }
+        
       }
     }
   }
